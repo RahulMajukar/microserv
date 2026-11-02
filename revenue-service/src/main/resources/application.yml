@@ -1,0 +1,31 @@
+server:
+  port: 8081
+
+spring:
+  config:
+    import:
+      - classpath:application-datasource.yml
+      - classpath:application-auth.yml
+  application:
+    name: revenue-service
+  datasource:
+    hikari:
+      pool-name: revenue-pool
+  jackson:
+    serialization:
+      indent-output: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  pattern:
+    console: "%d{HH:mm:ss.SSS} %-5level [%X{requestId}] %logger{36} - %msg%n"
+  level:
+    com.learn: info

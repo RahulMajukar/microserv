@@ -1,0 +1,9 @@
+# Both services import this file, so a token created by one is valid on the other.
+# The secret is the shared signature key. The password is only checked at login.
+auth:
+  jwt:
+    secret: learning-lab-jwt-secret-change-me-32b
+    ttl-minutes: 60
+  user:
+    username: learner
+    password: learner
